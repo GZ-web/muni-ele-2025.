@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="حملة الغينه للكل - انتخابات بلدية ٢٠٢٥. رؤيتنا هي بلدية عادلة، شفافة، ومزدهرة تعمل لخدمة جميع المواطنين دون استثناء.">
+    <title>الغينه للكل - انتخابات بلدية ٢٠٢٥</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Cairo', Arial, sans-serif;
+            min-height: 100vh;
+            background-color: #000b33;
+            color: #f7fafc;
+            padding: 16px;
+            text-align: right;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .logo {
+            width: 180px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .divider {
+            height: 4px;
+            width: 60%;
+            margin: 16px auto;
+            background-color: #e53e3e;
+            border-radius: 9999px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #a0aec0;
+            line-height: 1.8;
+        }
+
+        section {
+            max-width: 60rem;
+            margin: 0 auto 32px;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 16px;
+            color: #f7fafc;
+        }
+
+        /* Goals Section Styling */
+        .goals-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        @media (min-width: 640px) {
+            .goals-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .goals-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .goal-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(145deg, #1a2b50, #243b6a);
+            border: 1px solid #2d436c;
+            color: #edf2f7;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.12);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .goal-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        .goal-item p {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* Team Members Section Styling */
+        .team-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        @media (min-width: 640px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .team-member {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(145deg, #1a2b50, #243b6a);
+            border: 1px solid #2d436c;
+            color: #edf2f7;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.12);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        .team-member:active {
+            transform: scale(0.95);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25), 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 16px;
+            margin-left: 16px;
+            object-fit: cover;
+            border: 3px solid #e53e3e;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-member-text {
+            flex: 1;
+            text-align: right;
+        }
+
+        .team-member-text p {
+            margin: 0;
+        }
+
+        .team-member-text p:first-child {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .team-member-text p:last-child {
+            font-size: 1rem;
+            color: #a0aec0;
+            margin-top: 8px;
+        }
+
+        /* Social Media Section Styling */
+        .social-media-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .social-media-section a {
+            display: inline-block;
+            background-color: #e53e3e;
+            color: #f7fafc;
+            font-weight: bold;
+            padding: 12px 32px;
+            border-radius: 9999px;
+            text-decoration: none;
+            margin: 8px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-media-section a:hover {
+            background-color: #c53030;
+            transform: translateY(-3px);
+        }
+
+        footer {
+            text-align: center;
+            color: #a0aec0;
+            margin-top: 40px;
+            border-top: 1px solid #374151;
+            padding-top: 24px;
+        }
+
+        @media print {
+            body {
+                color: #000;
+                background-color: #fff;
+            }
+
+            .social-media-section,
+            footer {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="logo.png" alt="الغينه للكل - انتخابات بلدية ٢٠٢٥" class="logo" loading="lazy">
+        <div class="divider"></div>
+    </header>
+
+    <section>
+        <h2>رؤيتنا</h2>
+        <p>
+            نؤمن بأن بلدة الغينه تستحق الأفضل. رؤيتنا هي بلدية عادلة، شفافة، ومزدهرة تعمل لخدمة جميع المواطنين،
+            دون استثناء.
+        </p>
+    </section>
+
+    <section>
+        <h2>أهدافنا</h2>
+        <div class="goals-grid">
+            <div class="goal-item">
+                <p>تحسين البنية التحتية والمرافق العامة</p>
+            </div>
+            <div class="goal-item">
+                <p>تشجيع الشباب على المشاركة في صنع القرار</p>
+            </div>
+            <div class="goal-item">
+                <p>تعزيز الشفافية والمحاسبة في العمل البلدي</p>
+            </div>
+            <div class="goal-item">
+                <p>حماية البيئة والمساحات الخضراء</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>فريق العمل</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="images/ZiadAwad.jpg" alt="زياد فريد عواد">
+                <div class="team-member-text">
+                    <p>زياد فريد عواد</p>
+                    <p>مرشح عن بلدية الغينه</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="images/image8.png" alt="جو ناجي ناضر">
+                <div class="team-member-text">
+                    <p>جو ناجي ناضر</p>
+                    <p>مرشح عن بلدية الغينه</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="images/image2.jpg" alt="روي شبل الكلاسي">
+                <div class="team-member-text">
+                    <p>روي شبل الكلاسي</p>
+                    <p>مرشح عن بلدية الغينه</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="images/image9.png" alt="كريستل جميل لطيف">
+                <div class="team-member-text">
+                    <p>كريستل جميل لطيف</p>
+                    <p>مرشح عن بلدية الغينه</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="images/image6.png" alt="سمعان سليم عازار">
+                <div class="team-member-text">
+                    <p>سمعان سليم عازار</p>
+                    <p>مرشح عن بلدية الغينه</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="images/image3.png" alt="ربيع منير الخويري">
+                <div class="team-member-text">
+                    <p>ربيع منير الخويري</p>
+                    <p>مرشح عن بلدية الغينه</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="images/image5.png" alt="إيلي مخايل عون">
+                <div class="team-member-text">
+                    <p>إيلي مخايل عون</p>
+                    <p>مرشح عن بلدية الغينه</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="images/image7.png" alt="أدوني إيلي الصائغ">
+                <div class="team-member-text">
+                    <p>أدوني إيلي الصائغ</p>
+                    <p>مرشح عن بلدية الغينه</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="images/image4.png" alt="إيلي ريمون صوما">
+                <div class="team-member-text">
+                    <p>إيلي ريمون صوما</p>
+                    <p>مرشح عن بلدية الغينه</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="social-media-section">
+        <h2>وسائل التواصل الاجتماعي</h2>
+        <a href="https://www.instagram.com" target="_blank">إنستغرام</a>
+        <a href="https://www.facebook.com" target="_blank">فيسبوك</a>
+        <a href="https://chat.whatsapp.com/WHATSAPP_GROUP_LINK" target="_blank">واتساب</a>
+    </section>
+
+    <footer>
+        &copy; 2025 حملة الغينه للكل
+    </footer>
+</body>
+
+</html>
