@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="حملة الغينه للكل - انتخابات بلدية ٢٠٢٥. رؤيتنا هي بلدية عادلة، شفافة، ومزدهرة تعمل لخدمة �[...]">
+    <meta name="description" content="حملة الغينه للكل - انتخابات بلدية ٢٠٢٥. رؤيتنا هي بلدية عادلة، شفافة، ومزدهرة تعمل لخدمة الجميع.">
     <title>الغينه للكل - انتخابات بلدية ٢٠٢٥</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -37,6 +37,19 @@
             border-radius: 9999px;
         }
 
+        .countdown-box {
+            max-width: 300px;
+            margin: 0 auto 24px;
+            background: linear-gradient(145deg, #1a2b50, #243b6a);
+            border: 1px solid #2d436c;
+            border-radius: 16px;
+            padding: 16px;
+            text-align: center;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.12);
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
         p {
             font-size: 1.1rem;
             color: #a0aec0;
@@ -55,7 +68,6 @@
             color: #f7fafc;
         }
 
-        /* Goals Section Styling */
         .goals-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -66,10 +78,15 @@
             .goals-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (min-width: 768px) {
-            .goals-grid {
+            .goals-grid,
+            .team-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
@@ -99,23 +116,10 @@
             font-weight: bold;
         }
 
-        /* Team Members Section Styling */
         .team-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 24px;
-        }
-
-        @media (min-width: 640px) {
-            .team-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (min-width: 768px) {
-            .team-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
         }
 
         .team-member {
@@ -146,8 +150,8 @@
             height: 120px;
             border-radius: 16px;
             margin-left: 16px;
-            object-fit: contain; /* Ensures the entire image is visible */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Keeps the shadow effect */
+            object-fit: contain;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .team-member-text {
@@ -170,7 +174,6 @@
             margin-top: 8px;
         }
 
-        /* Social Media Section Styling */
         .social-media-section {
             text-align: center;
             margin-bottom: 40px;
@@ -219,13 +222,16 @@
     <header>
         <img src="images/image10.jpg" alt="الغينه للكل - انتخابات بلدية ٢٠٢٥" class="logo" loading="lazy">
         <div class="divider"></div>
+
+        <div class="countdown-box">
+            <div id="countdown">جارٍ التحميل...</div>
+        </div>
     </header>
 
     <section>
         <h2>رؤيتنا</h2>
         <p>
-            نؤمن بأن بلدة الغينه تستحق الأفضل. رؤيتنا هي بلدية عادلة، شفافة، ومزدهرة تعمل لخدمة جميع المواطنين،
-            دون استثناء.
+            نؤمن بأن بلدة الغينه تستحق الأفضل. رؤيتنا هي بلدية عادلة، شفافة، ومزدهرة تعمل لخدمة جميع المواطنين، دون استثناء.
         </p>
     </section>
 
@@ -318,7 +324,7 @@
 
     <section class="social-media-section">
         <h2>وسائل التواصل الاجتماعي</h2>
-        <a href="https://www.instagram.com" target="_blank">إنستغرام</a>
+        <a href="https://www.instagram.com/ghineh_lal_kel" target="_blank">إنستغرام</a>
         <a href="https://www.facebook.com" target="_blank">فيسبوك</a>
         <a href="https://chat.whatsapp.com/WHATSAPP_GROUP_LINK" target="_blank">واتساب</a>
     </section>
@@ -326,6 +332,36 @@
     <footer>
         &copy; 2025 حملة الغينه للكل
     </footer>
+
+    <canvas id="confetti-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        const countdownElement = document.getElementById("countdown");
+        const targetDate = new Date("2025-05-04T08:00:00").getTime();
+
+        const countdownInterval = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance <= 0) {
+                clearInterval(countdownInterval);
+                countdownElement.textContent = "حان وقت التصويت!";
+                confetti.create(document.getElementById("confetti-canvas"), { resize: true })({
+                    particleCount: 300,
+                    spread: 120,
+                    origin: { y: 0.6 }
+                });
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdownElement.innerHTML = `${days} يوم، ${hours} ساعة، ${minutes} دقيقة، ${seconds} ثانية`;
+        }, 1000);
+    </script>
 </body>
 
 </html>
