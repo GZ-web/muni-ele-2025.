@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,23 +11,20 @@
             margin: 0;
             font-family: 'Cairo', Arial, sans-serif;
             min-height: 100vh;
-            background-color: #0A0E39; /* <-- CHANGED */
+            background-color: #0A0E39;
             color: #f7fafc;
             padding: 16px;
             text-align: right;
         }
-
         header {
             text-align: center;
             margin-bottom: 24px;
         }
-
         .logo {
             width: 180px;
             margin: 0 auto;
             display: block;
         }
-
         .divider {
             height: 4px;
             width: 60%;
@@ -36,7 +32,6 @@
             background-color: #e53e3e;
             border-radius: 9999px;
         }
-
         .countdown-box {
             max-width: 300px;
             margin: 0 auto 24px;
@@ -49,48 +44,34 @@
             font-size: 1.2rem;
             font-weight: bold;
         }
-
         p {
             font-size: 1.1rem;
             color: #a0aec0;
             line-height: 1.8;
         }
-
         section {
             max-width: 60rem;
             margin: 0 auto 32px;
         }
-
         h2 {
             font-size: 2.2rem;
             font-weight: bold;
             margin-bottom: 16px;
             color: #f7fafc;
         }
-
         .goals-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 24px;
         }
-
         @media (min-width: 640px) {
             .goals-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-
             .team-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
-
-        @media (min-width: 768px) {
-            .goals-grid,
-            .team-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
         .goal-item {
             display: flex;
             align-items: center;
@@ -104,24 +85,10 @@
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
         .goal-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.15);
         }
-
-        .goal-item p {
-            margin: 0;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 24px;
-        }
-
         .team-member {
             display: flex;
             align-items: center;
@@ -132,19 +99,12 @@
             padding: 20px;
             box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.12);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
+            margin-bottom: 24px; /* Added margin bottom */
         }
-
         .team-member:hover {
             transform: translateY(-5px);
             box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.15);
         }
-
-        .team-member:active {
-            transform: scale(0.95);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25), 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
         .team-member img {
             width: 120px;
             height: 120px;
@@ -153,49 +113,44 @@
             object-fit: contain;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
         .team-member-text {
             flex: 1;
             text-align: right;
         }
-
         .team-member-text p {
             margin: 0;
         }
-
         .team-member-text p:first-child {
             font-size: 1.2rem;
             font-weight: bold;
         }
-
         .team-member-text p:last-child {
             font-size: 1rem;
             color: #a0aec0;
             margin-top: 8px;
         }
-
-        .social-media-section {
-            text-align: center;
-            margin-bottom: 40px;
+        .navigation-bar {
+            display: flex;
+            justify-content: center;
+            background-color: #2d436c;
+            margin-bottom: 20px;
         }
-
-        .social-media-section a {
-            display: inline-block;
-            background-color: #e53e3e;
+        .navigation-bar a {
+            padding: 14px 20px;
             color: #f7fafc;
-            font-weight: bold;
-            padding: 12px 32px;
-            border-radius: 9999px;
             text-decoration: none;
-            margin: 8px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease;
         }
-
-        .social-media-section a:hover {
-            background-color: #c53030;
-            transform: translateY(-3px);
+        .navigation-bar a:hover {
+            background-color: #e53e3e;
         }
-
+        .content-section {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
         footer {
             text-align: center;
             color: #a0aec0;
@@ -203,165 +158,188 @@
             border-top: 1px solid #374151;
             padding-top: 24px;
         }
-
-        @media print {
-            body {
-                color: #000;
-                background-color: #fff;
-            }
-
-            .social-media-section,
-            footer {
-                display: none;
-            }
-        }
     </style>
 </head>
-
 <body>
-    <header>
-        <img src="images/image10.jpg" alt="الغينه للكل - انتخابات بلدية ٢٠٢٥" class="logo" loading="lazy">
-        <div class="divider"></div>
+<header>
+    <img src="images/image10.jpg" alt="الغينه للكل - انتخابات بلدية ٢٠٢٥" class="logo" loading="lazy">
+    <div class="divider"></div>
+    <div class="countdown-box">
+        <div id="countdown">جارٍ التحميل...</div>
+    </div>
+</header>
 
-        <div class="countdown-box">
-            <div id="countdown">جارٍ التحميل...</div>
+<div class="navigation-bar">
+    <a href="#" onclick="showSection('vision')">رؤيتنا</a>
+    <a href="#" onclick="showSection('goals')">أهدافنا</a>
+    <a href="#" onclick="showSection('team')">الأعضاء</a>
+</div>
+
+<section id="vision" class="content-section active">
+    <h2>رؤيتنا</h2>
+    <p>
+        نؤمن بأن بلدة الغينه تستحق الأفضل. رؤيتنا هي بلدية عادلة، شفافة، ومزدهرة تعمل لخدمة جميع المواطنين، دون استثناء.
+    </p>
+</section>
+
+<section id="goals" class="content-section">
+    <h2>أهدافنا</h2>
+    <div class="goals-grid">
+        <div class="goal-item">
+            <p>تعزيز الروابط الاجتماعية بين السكان</p>
         </div>
-    </header>
-
-    <section>
-        <h2>رؤيتنا</h2>
-        <p>
-            نؤمن بأن بلدة الغينه تستحق الأفضل. رؤيتنا هي بلدية عادلة، شفافة، ومزدهرة تعمل لخدمة جميع المواطنين، دون استثناء.
-        </p>
-    </section>
-
-    <section>
-        <h2>أهدافنا</h2>
-        <div class="goals-grid">
-            <div class="goal-item">
-                <p>تحسين البنية التحتية والمرافق العامة</p>
-            </div>
-            <div class="goal-item">
-                <p>تشجيع الشباب على المشاركة في صنع القرار</p>
-            </div>
-            <div class="goal-item">
-                <p>تعزيز الشفافية والمحاسبة في العمل البلدي</p>
-            </div>
-            <div class="goal-item">
-                <p>حماية البيئة والمساحات الخضراء</p>
-            </div>
+        <div class="goal-item">
+            <p>تنفيذ نظام إعادة التدوير الذاتي وفرز النفايات</p>
         </div>
-    </section>
+        <div class="goal-item">
+            <p> (...صيانة الأماكن العامة (الحديقة العامة، العين، الآثار، الملعب البلدي</p>
+        </div>
+        <div class="goal-item">
+            <p>السعي لإنشاء مركز إسعافات أولية في الغينه</p>
+        </div>
+                <div class="goal-item">
+            <p>تخفيف وحل النزاعات داخل البلدة</p>
+        </div>
+        <div class="goal-item">
+            <p>تعزيز مسارات المشي الجبلي في البلدة</p>
+        </div>
+        <div class="goal-item">
+            <p>إنشاء موقع إلكتروني للبلدية</p>
+        </div>
+        <div class="goal-item">
+            <p> "إطلاق مسار سياحي في البلدة باسم "جولة في قلب التاريخ</p>
+        </div>
+                <div class="goal-item">
+            <p>تعزيز العلاقات مع القرى المجاورة</p>
+        </div>
+        <div class="goal-item">
+            <p>استثمار طاقات أهالي البلدة</p>
+        </div>
+        <div class="goal-item">
+            <p>عقد حلقات توعية لخدمة أهالي البلدة</p>
+        </div>
+        <div class="goal-item">
+            <p>إنارة الشوارع بالطاقة المتجددة</p>
+        </div>
+                <div class="goal-item">
+            <p>متابعة الأسباب التي أدت إلى أزمة المياه في البلدة والعمل على معالجتها</p>
+        </div>
+        <div class="goal-item">
+            <p>صيانة ومتابعة المشاريع التي نفذتها مجالس البلدية السابقة</p>
+        </div>
+        <div class="goal-item">
+            <p>تحفيز الرياضة في البلدة</p>
+        </div>
+        <div class="goal-item">
+            <p>تعزيز وحماية المعالم الأثرية والسياحية في البلدة</p>
+        </div>
+        <div class="goal-item">
+            <p>السعي لتأمين مشروع توأمة مع بلدية أجنبية</p>
+        </div>
+    </div>
+</section>
 
-    <section>
-        <h2>الأعضاء</h2>
-        <div class="team-grid">
-            <div class="team-member">
-                <img src="images/ZiadAouad.jpg" alt="زياد فريد عواد">
-                <div class="team-member-text">
-                    <p>زياد فريد عواد</p>
-                    <p>مرشح عن بلدية الغينه</p>
-                </div>
-            </div>
-            <div class="team-member">
-                <img src="images/image8.png" alt="جو ناجي ناضر">
-                <div class="team-member-text">
-                    <p>جو ناجي ناضر</p>
-                    <p>مرشح عن بلدية الغينه</p>
-                </div>
-            </div>
-            <div class="team-member">
-                <img src="images/image2.jpg" alt="روي شبل الكلاسي">
-                <div class="team-member-text">
-                    <p>روي شبل الكلاسي</p>
-                    <p>مرشح عن بلدية الغينه</p>
-                </div>
-            </div>
-            <div class="team-member">
-                <img src="images/image9.png" alt="كريستل جميل لطيف">
-                <div class="team-member-text">
-                    <p>كريستل جميل لطيف</p>
-                    <p>مرشح عن بلدية الغينه</p>
-                </div>
-            </div>
-            <div class="team-member">
-                <img src="images/image6.png" alt="سمعان سليم عازار">
-                <div class="team-member-text">
-                    <p>سمعان سليم عازار</p>
-                    <p>مرشح عن بلدية الغينه</p>
-                </div>
-            </div>
-            <div class="team-member">
-                <img src="images/image3.png" alt="ربيع منير الخويري">
-                <div class="team-member-text">
-                    <p>ربيع منير الخويري</p>
-                    <p>مرشح عن بلدية الغينه</p>
-                </div>
-            </div>
-            <div class="team-member">
-                <img src="images/image5.png" alt="إيلي مخايل عون">
-                <div class="team-member-text">
-                    <p>إيلي مخايل عون</p>
-                    <p>مرشح عن بلدية الغينه</p>
-                </div>
-            </div>
-            <div class="team-member">
-                <img src="images/image7.png" alt="أدوني إيلي الصائغ">
-                <div class="team-member-text">
-                    <p>أدوني إيلي الصائغ</p>
-                    <p>مرشح عن بلدية الغينه</p>
-                </div>
-            </div>
-            <div class="team-member">
-                <img src="images/image4.png" alt="إيلي ريمون صوما">
-                <div class="team-member-text">
-                    <p>إيلي ريمون صوما</p>
-                    <p>مرشح عن بلدية الغينه</p>
-                </div>
+<section id="team" class="content-section">
+    <h2>الأعضاء</h2>
+    <div class="team-grid">
+        <div class="team-member">
+            <img src="images/ZiadAouad.jpg" alt="زياد فريد عواد">
+            <div class="team-member-text">
+                <p>زياد فريد عواد</p>
+                <p>مرشح عن بلدية الغينه</p>
             </div>
         </div>
-    </section>
+        <div class="team-member">
+            <img src="images/image8.png" alt="جو ناجي ناضر">
+            <div class="team-member-text">
+                <p>جو ناجي ناضر</p>
+                <p>مرشح عن بلدية الغينه</p>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="images/image2.jpg" alt="روي شبل الكلاسي">
+            <div class="team-member-text">
+                <p>روي شبل الكلاسي</p>
+                <p>مرشح عن بلدية الغينه</p>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="images/image9.png" alt="كريستل جميل لطيف">
+            <div class="team-member-text">
+                <p>كريستل جميل لطيف</p>
+                <p>مرشح عن بلدية الغينه</p>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="images/image6.png" alt="سمعان سليم عازار">
+            <div class="team-member-text">
+                <p>سمعان سليم عازار</p>
+                <p>مرشح عن بلدية الغينه</p>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="images/image3.png" alt="ربيع منير الخويري">
+            <div class="team-member-text">
+                <p>ربيع منير الخويري</p>
+                <p>مرشح عن بلدية الغينه</p>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="images/image5.png" alt="إيلي مخايل عون">
+            <div class="team-member-text">
+                <p>إيلي مخايل عون</p>
+                <p>مرشح عن بلدية الغينه</p>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="images/image7.png" alt="أدوني إيلي الصائغ">
+            <div class="team-member-text">
+                <p>أدوني إيلي الصائغ</p>
+                <p>مرشح عن بلدية الغينه</p>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="images/image4.png" alt="إيلي ريمون صوما">
+            <div class="team-member-text">
+                <p>إيلي ريمون صوما</p>
+                <p>مرشح عن بلدية الغينه</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <section class="social-media-section">
-        <h2>وسائل التواصل الاجتماعي</h2>
-        <a href="https://www.instagram.com/ghineh_lal_kel" target="_blank">إنستغرام</a>
-        <a href="https://www.facebook.com" target="_blank">فيسبوك</a>
-        <a href="https://chat.whatsapp.com/WHATSAPP_GROUP_LINK" target="_blank">واتساب</a>
-    </section>
+<footer>
+    &copy; 2025 حملة الغينه للكل
+</footer>
 
-    <footer>
-        &copy; 2025 حملة الغينه للكل
-    </footer>
+<script>
+    function showSection(section) {
+        const sections = document.querySelectorAll('.content-section');
+        sections.forEach(s => s.classList.remove('active'));
+        document.getElementById(section).classList.add('active');
+    }
 
-    <canvas id="confetti-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;"></canvas>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-    <script>
-        const countdownElement = document.getElementById("countdown");
-        const targetDate = new Date("2025-05-04T08:00:00").getTime();
+    const countdownElement = document.getElementById("countdown");
+    const targetDate = new Date("2025-05-04T08:00:00").getTime();
 
-        const countdownInterval = setInterval(() => {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
+    const countdownInterval = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
 
-            if (distance <= 0) {
-                clearInterval(countdownInterval);
-                countdownElement.textContent = "حان وقت التصويت!";
-                confetti.create(document.getElementById("confetti-canvas"), { resize: true })({
-                    particleCount: 300,
-                    spread: 120,
-                    origin: { y: 0.6 }
-                });
-                return;
-            }
+        if (distance <= 0) {
+            clearInterval(countdownInterval);
+            countdownElement.textContent = "حان وقت التصويت!";
+            return;
+        }
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            countdownElement.innerHTML = `${days} يوم، ${hours} ساعة، ${minutes} دقيقة، ${seconds} ثانية`;
-        }, 1000);
-    </script>
+        countdownElement.innerHTML = `${days} يوم، ${hours} ساعة، ${minutes} دقيقة، ${seconds} ثانية`;
+    }, 1000);
+</script>
+
 </body>
-
 </html>
